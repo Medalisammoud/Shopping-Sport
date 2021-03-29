@@ -9,15 +9,15 @@ const NavBar = () => {
       <nav className="navbar navbar-dark navbar-expand-md navigation-clean-search">
         <div className="container">
           <Link to="/" className="navbar-brand" >
-            Shopping Sport
+          Shopping Sport Equipment
           </Link>
           <button
             className="navbar-toggler"
             data-toggle="collapse"
             data-target="#navcol-1"
           >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
+            <span className="sr-only">Toggle navigation</span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="nav navbar-nav">
@@ -49,7 +49,7 @@ const NavBar = () => {
             </ul>
             <form className="form-inline mr-auto" target="_self">
               <div className="form-group">
-                <label for="search-field">
+                <label >
                   <i className="fa fa-search"></i>
                 </label>
                 <input

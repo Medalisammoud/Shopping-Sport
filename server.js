@@ -14,8 +14,10 @@ const PORT = process.env.PORT
 //Connect DataBase
 connectDB();
 
+
 // middleware global
 app.use(express.json());
+
 // router
 app.use("/api/user", require("./routes/user"));
 
