@@ -116,7 +116,7 @@ const SignUp = ({ history }) => {
                     <button
                       className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                       type="submit"
-                      onClick={()=>dispatch(signup(user,history))}
+                      onClick={(e) => { e.preventDefault(); dispatch(signup(user, history)) }}
                     >
                       Sign Up
                     </button>

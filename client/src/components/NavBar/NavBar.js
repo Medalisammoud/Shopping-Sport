@@ -1,9 +1,13 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
+import { logout } from "../../js/Action/actionUser";
 
 import "./NavBar.css";
 
 const NavBar = () => {
+  const isAuth = useSelector(state => state.userReducer.isAuth)
+  const dispatch = useDispatch()
   return (
     <div className="header-blue">
       <nav className="navbar navbar-dark navbar-expand-md navigation-clean-search">
@@ -60,14 +64,26 @@ const NavBar = () => {
                 />
               </div>
             </form>
+            {
+              isAuth ?  
             <span className="navbar-text">
-              <Link to="/signin"  className="login">
-                Log In
+               <Link to="/" onClick={()=>{dispatch(logout())}}>
+                Logout
               </Link>
             </span>
-            <Link to="/signup"  className="btn btn-light action-button" role="button">
-              Sign Up
+            :
+            <>
+            <span className="navbar-text">
+            <Link to="/signin"  className="login">
+              Log In
             </Link>
+          </span>
+          <Link to="/signup"  className="btn btn-light action-button" role="button">
+            Sign Up
+          </Link>
+          </>
+            }
+            
           </div>
         </div>
       </nav>
