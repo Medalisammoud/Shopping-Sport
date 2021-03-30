@@ -42,9 +42,9 @@ export const currentUser = () => async (dispatch) => {
   };
 
 //Update User
-export const updateUser = ( id, newContact ) => async (dispatch) =>{
+export const updateUser = ( id, newUser ) => async (dispatch) =>{
     try {
-        await axios.put(`/contact/${id}`, newContact)
+        await axios.put(`/api/user/update/${id}`, newUser)
         dispatch(currentUser())
     } catch (error) {
         console.log(error)

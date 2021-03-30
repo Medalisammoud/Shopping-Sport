@@ -12,6 +12,7 @@ import SignIn from "./components/SignIn/SignIn";
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/Router/PriveRouter";
 import { currentUser } from "./js/Action/actionUser";
+import Errors404 from "./components/PageNotFound/Errors404";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
        <Route  path="/signup" component={ SignUp } />
        <Route  path="/signin" component={ SignIn } />
        <PrivateRoute path="/profile" component={Profile} />
+       <Route path="/*" component={Errors404} />
      </Switch>
      <Footer />
     </div>

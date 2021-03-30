@@ -6,8 +6,10 @@ import { logout } from "../../js/Action/actionUser";
 import "./NavBar.css";
 
 const NavBar = () => {
+  
   const isAuth = useSelector(state => state.userReducer.isAuth)
   const dispatch = useDispatch()
+
   return (
     <div className="header-blue">
       <nav className="navbar navbar-dark navbar-expand-md navigation-clean-search">
@@ -66,11 +68,23 @@ const NavBar = () => {
             </form>
             {
               isAuth ?  
-            <span className="navbar-text">
-               <Link to="/" onClick={()=>{dispatch(logout())}}>
-                Logout
-              </Link>
-            </span>
+            <div className="dropdown">
+               <span
+                  className="dropdown-toggle nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Account
+                </span>
+                <div className="dropdown-menu" role="menu">
+                  <Link to="/profile" className="dropdown-item">
+                    My Account
+                  </Link>
+                  <Link to="/" className="dropdown-item" onClick={()=>{dispatch(logout())}}>
+                    Logout
+                  </Link>
+                </div>
+            </div>
             :
             <>
             <span className="navbar-text">

@@ -31,12 +31,13 @@ const SignUp = ({ history }) => {
   }, [dispatch])
   return (
     <div className="container-fluid">
-      {errors.length > 0 ? errors.map((el) => <Errors error={el} />) : null}
+      
       <div className="row no-gutter">
         <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image1"></div>
         <div className="col-md-8 col-lg-6">
           <div className="login d-flex align-items-center py-5">
             <div className="container">
+              { errors.length > 0 ? <div style={{display:"flex"}}> {errors.map((el,i) => <Errors key={i} error={el} />)}</div> : null}
               <div className="row">
                 <div className="col-md-9 col-lg-8 mx-auto">
                   <h3 className="login-heading mb-4">Register</h3>

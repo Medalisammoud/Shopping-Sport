@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signin, videErrors } from "../../js/Action/actionUser";
+import Errors from "../Errors/Errors";
 import "./SignIn.css";
 
 const SignIn = ({ history }) => {
@@ -9,7 +10,6 @@ const SignIn = ({ history }) => {
 
   const dispatch = useDispatch();
   const errors = useSelector((state) => state.userReducer.errors);
-  console.log(errors);
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -26,6 +26,7 @@ const SignIn = ({ history }) => {
         <div className="col-md-8 col-lg-6">
           <div className="login d-flex align-items-center py-5">
             <div className="container">
+            {errors.length > 0 ? <div style={{display:"flex"}}> {errors.map((el,i) => <Errors key={i} error={el} />)}</div> : null}
               <div className="row">
                 <div className="col-md-9 col-lg-8 mx-auto">
                   <h3 className="login-heading mb-4">Welcome back!</h3>
