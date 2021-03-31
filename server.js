@@ -16,10 +16,13 @@ connectDB();
 
 
 // middleware global
+app.use("/uploads", express.static('uploads'));
 app.use(express.json({limit: '50mb'}));
 
 // router
 app.use("/api/user", require("./routes/user"));
+app.use("/api/category", require("./routes/category"));
+app.use("/api/product", require("./routes/product"));
 
 //Connect Server
 app.listen(PORT,(err) =>

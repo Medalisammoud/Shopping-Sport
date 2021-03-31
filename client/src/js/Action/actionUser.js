@@ -21,7 +21,12 @@ export const signin = (user, history) => async (dispatch) =>{
     try {
         const result = await axios.post("/api/user/signin", user);
         dispatch({ type: SIGNIN_USER, payload: result.data })
-        history.push("/profile");
+        if(result.data.user.role===1)
+        {
+          history.push("/admin");
+        }else{
+          history.push("/profile");
+        }
     } catch (error) {
         console.log(error.response.data.errors);
         dispatch({ type: FAIL_USER, payload: error.response.data.errors })

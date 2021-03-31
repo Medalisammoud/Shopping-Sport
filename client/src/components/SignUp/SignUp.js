@@ -9,7 +9,6 @@ import Errors from '../Errors/Errors'
 import "./SignUp.css";
 
 const SignUp = ({ history }) => {
-  console.log(history)
   const [user, setUser] = useState({
       firstName: '',
       lastName: '',

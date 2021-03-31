@@ -19,7 +19,13 @@ const UserSchema = new Schema({
     required: true,
   },
   phone : String,
-  image : String,
+  image : {
+    type : String
+  },
+  role : {
+    type : Number,
+    default : 0
+  }
 });
 
 module.exports = User = model("user", UserSchema);

@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 exports.SignUp = async (req, res) => {
   try {
     //   req.body
-    const { firstName, lastName, email, phone, password, image  } = req.body;
+    const { firstName, lastName, email, phone, password, image, role  } = req.body;
 
     // check if the email is not found in the database
     const FoundUser = await User.findOne({ email });
@@ -22,7 +22,7 @@ exports.SignUp = async (req, res) => {
       });
       return;
     }
-    const newUser = new User({ firstName, lastName, email, phone, password, image });
+    const newUser = new User({ firstName, lastName, email, phone, password, image ,role });
 
     // hash the password
     const hashedpassword = bcrypt.hashSync(password, salt);

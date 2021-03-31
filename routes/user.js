@@ -6,6 +6,7 @@ const router = express.Router();
 const { SignUp, SignIn, update } = require("../controllers/user");
 //require middlewares Authentication
 const isAuth = require("../middlewares/auth_jwt");
+const upload = require("../middlewares/multer");
 
 //require middlewares User
 const {
