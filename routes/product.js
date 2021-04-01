@@ -1,21 +1,21 @@
 //require express
 const express = require("express");
-const { addProduct } = require("../controllers/product");
+const { addProduct, getProduct, getOneProduct, updateProduct, deleteProduct } = require("../controllers/product");
 const upload = require("../middlewares/multer");
 //reqquire router
 const router = express.Router();
 
 /**
  * @desc : Route Get All Products
- * @path : 'http://localhost:7000/api/product/'
+ * @path : 'http://localhost:8000/api/product/'
  * @method : GET
  * @data : No Data
  */
-router.get('/')
+router.get('/',getProduct)
 
 /**
  * @desc : Route Add New Product
- * @path : 'http://localhost:7000/api/product/add'
+ * @path : 'http://localhost:8000/api/product/add'
  * @method : POST
  * @data : req.body
  */
@@ -23,27 +23,27 @@ router.get('/')
 
  /**
  * @desc : Route get product
- * @path : 'http://localhost:7000/api/product/:id'
+ * @path : 'http://localhost:8000/api/product/:id'
  * @method : GET
  * @data : req.params
  */
-  router.get('/:id')
+  router.get('/:id',getOneProduct)
 
  /**
  * @desc : Route Update product
- * @path : 'http://localhost:7000/api/product/update/:id'
+ * @path : 'http://localhost:8000/api/product/update/:id'
  * @method : PUT
  * @data : req.params , req.body
  */
-  router.put('/update/:id')
+  router.put('/update/:id',upload.single('productImage'),updateProduct)
 
    /**
  * @desc : Route Delete product
- * @path : 'http://localhost:7000/api/product/delete/:id'
+ * @path : 'http://localhost:8000/api/product/delete/:id'
  * @method : DELETE
  * @data : req.params
  */
-    router.delete('/:id')
+    router.delete('/delete/:id',deleteProduct)
 
 
  module.exports = router;
