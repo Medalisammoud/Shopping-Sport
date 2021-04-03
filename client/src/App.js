@@ -18,7 +18,6 @@ import PrivateRouteAdmin from "./components/Router/PrivateRouteAdmin";
 
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);

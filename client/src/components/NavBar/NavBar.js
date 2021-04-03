@@ -8,6 +8,7 @@ import "./NavBar.css";
 const NavBar = () => {
   
   const isAuth = useSelector(state => state.userReducer.isAuth)
+  const admin = useSelector(state => state.userReducer.admin)
   const dispatch = useDispatch()
 
   return (
@@ -77,7 +78,7 @@ const NavBar = () => {
                   Account
                 </span>
                 <div className="dropdown-menu" role="menu">
-                  <Link to="/profile" className="dropdown-item">
+                  <Link to={admin ? "/admin" :"/profile"} className="dropdown-item">
                     My Account
                   </Link>
                   <Link to="/" className="dropdown-item" onClick={()=>{dispatch(logout())}}>

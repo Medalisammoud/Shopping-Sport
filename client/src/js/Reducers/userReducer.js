@@ -1,7 +1,8 @@
-import { CURRENT_USER, FAIL_USER, LOAD_USER, LOGOUT_USER, SIGNIN_USER, SIGNUP_USER } from "../Constants/actionTypes";
+import { CURRENT_USER, FAIL_USER, GET_ALL__USERS, LOAD_USER, LOGOUT_USER, SIGNIN_USER, SIGNUP_USER } from "../Constants/actionTypes";
 
 const initialState = {
     user: {},
+    users:[],
     isAuth: false,
     admin:false,
     loadUser: false,
@@ -23,16 +24,12 @@ const initialState = {
         };
       case SIGNIN_USER:
         localStorage.setItem("token", payload.token);
-        let admin =false
-        if(payload.user.role===1){
-          admin = true;
-        }
         return {
           ...state,
           loadUser: false,
           user: payload.user,
           isAuth: true,
-          admin,
+          admin : payload.user.role===1 ? true : false,
           errors: [],
         };
       case CURRENT_USER:
@@ -40,8 +37,15 @@ const initialState = {
           ...state,
           loadUser: false,
           user: payload,
+          admin : payload.role===1 ? true : false,
           isAuth: true,
           errors: [],
+        };
+        case GET_ALL__USERS:
+        return {
+          ...state,
+          loadUser: false,
+          users : payload.users
         };
       case FAIL_USER:
         return { ...state, loadUser: false, errors: payload };

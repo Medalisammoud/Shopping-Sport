@@ -83,6 +83,16 @@ exports.SignIn = async (req, res) => {
   }
 };
 
+//Get All Users
+exports.getAllUser = async (req, res)=>{
+  try {
+    const result = await User.find()
+    res.status(200).send({msg : 'Success To Get All Users...', users : result})
+  } catch (error) {
+    res.status(400).send({msg : "Can Not Get Users !!!", error})
+  }
+}
+
 //update
 exports.update = async( req, res )=>{
     try {

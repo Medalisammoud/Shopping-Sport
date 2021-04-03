@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
 
 import { updateUser } from "../../js/Action/actionUser";
+import imageUser from '../../assets/user.jpg'
 
 import "./Profile.css";
 
@@ -53,7 +54,7 @@ const Profile = () => {
                 <div className="col-md-12 text-center mb-2">
                   <div className="avatar avatar-xl ">
                     <img
-                      src={edituser.image ? edituser.image :"https://bootdey.com/img/Content/avatar/avatar6.png" }
+                      src={edituser.image ? edituser.image :imageUser }
                       alt="user"
                       className="avatar-img rounded-circle"
                     />

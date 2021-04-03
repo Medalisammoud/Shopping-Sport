@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CURRENT_USER, FAIL_USER, LOAD_USER, LOGOUT_USER, SIGNIN_USER, SIGNUP_USER } from "../Constants/actionTypes"
+import { CURRENT_USER, FAIL_USER, GET_ALL__USERS, LOAD_USER, LOGOUT_USER, SIGNIN_USER, SIGNUP_USER } from "../Constants/actionTypes"
 
 //signup
 export const signup = (newUser, history) => async (dispatch) => {
@@ -45,6 +45,16 @@ export const currentUser = () => async (dispatch) => {
       dispatch({ type: FAIL_USER, payload: error.response.data });
     }
   };
+
+//Get All Users
+export const getAllUsers = () => async (dispatch) =>{
+  try {
+      const result = await axios.get('/api/user/')
+      dispatch({type : GET_ALL__USERS , payload: result.data})
+  } catch (error) {
+      console.log(error)
+  }
+}
 
 //Update User
 export const updateUser = ( id, newUser ) => async (dispatch) =>{

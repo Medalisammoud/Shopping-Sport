@@ -1,41 +1,64 @@
-import React from 'react'
+import React,{ useState, useEffect } from 'react'
+import { useDispatch,useSelector } from "react-redux";
+import "./Admin.css"
+import EditAdmin from './EditAdmin/EditAdmin';
+import imageAdmin from '../../assets/admin.jpg'
+import ListUser from './ListUsers/ListUser';
+import { getAllUsers } from "../../js/Action/actionUser";
+import ListCategory from './Category/ListCategory';
+import { getAllCategory } from '../../js/Action/actionCategory';
 
 const Admin = () => {
+    const dispatch = useDispatch(); 
+    const admin = useSelector((state) => state.userReducer.user);
+    const [editadmin, setEditAdmin] = useState({
+      firstName: '',
+      lastName: '',
+      email : '',
+      phone : '',
+      image : ''
+  });
+  useEffect(() => {
+    dispatch(getAllUsers());
+    dispatch(getAllCategory());
+    setEditAdmin(admin);
+  }, [dispatch]);
+
     return (
         <div className="container emp-profile">
-            <form method="post">
+            <form>
                 <div className="row">
                     <div className="col-md-4">
                         <div className="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div className="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
+                            <img src={editadmin.image ? editadmin.image : imageAdmin } alt="Admin"/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="profile-head">
                                     <h5>
-                                        Kshiti Ghelani
+                                        Administrator
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                        Shopping Equipment Sport
                                     </h6>
-                                    <p className="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul className="nav nav-tabs" id="myTab" role="tablist">
                                 <li className="nav-item">
                                     <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    <a className="nav-link" id="Users-tab" data-toggle="tab" href="#Users" role="tab" aria-controls="Users" aria-selected="false">Users</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" id="Categorys-tab" data-toggle="tab" href="#Categorys" role="tab" aria-controls="Categorys" aria-selected="false">Categorys</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" id="Products" data-toggle="tab" href="#Products" role="tab" aria-controls="Products" aria-selected="false">Products</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div className="col-md-2">
-                        <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
+                    <EditAdmin /> 
+                    
                 </div>
                 <div className="row">
                     <div className="col-md-4">
@@ -44,12 +67,6 @@ const Admin = () => {
                             <a href="">Website Link</a><br/>
                             <a href="">Bootsnipp Profile</a><br/>
                             <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
                         </div>
                     </div>
                     <div className="col-md-8">
@@ -57,18 +74,18 @@ const Admin = () => {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <label>User Id</label>
+                                                <label>First Name</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p>{admin.firstName}</p>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <label>Name</label>
+                                                <label>Last Name</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p>{admin.lastName}</p>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -76,74 +93,20 @@ const Admin = () => {
                                                 <label>Email</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p>{admin.email}</p>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <label>Phone</label>
+                                                <label>Phone Number</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>123 456 7890</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Profession</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p>{admin.phone}</p>
                                             </div>
                                         </div>
                             </div>
-                            <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <ListUser />
+                            <ListCategory />
                         </div>
                     </div>
                 </div>

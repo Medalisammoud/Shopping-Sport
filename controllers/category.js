@@ -24,7 +24,7 @@ exports.addCategory = async (req, res) => {
 exports.getCategorys = async (req, res) => {
     try {
         const allCategorys = await Category.find();
-        res.status(200).send({msg : "Get All Categorys Success",allCategorys})
+        res.status(200).send({msg : "Get All Categorys Success",categorys : allCategorys})
     } catch (error) {
         console.log(error);
     res.status(400).send({ errors: [{ msg: "can not get Categorys" }] });
@@ -35,7 +35,7 @@ exports.getCategorys = async (req, res) => {
 exports.getCategory = async (req, res) => {
     try {
         const oneCategory = await Category.findById({_id : req.params.id});
-        res.status(200).send({msg : "Get All Categorys Success",oneCategory})
+        res.status(200).send({msg : "Get One Category Success",category : oneCategory})
     } catch (error) {
         console.log(error);
     res.status(400).send({ errors: [{ msg: "can not get Category" }] });
