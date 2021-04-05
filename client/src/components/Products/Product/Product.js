@@ -1,45 +1,53 @@
-import React from 'react'
+import React from "react";
 
-import image from '../../../assets/signup.jpg'
-import image1 from '../../../assets/signin.jpg'
-import './Product.css'
-const Product = () => {
-    return (
-    <div className="container">
-    <div className="row">
-        <div className="col-md-3 col-sm-6">
-            <div className="product-grid">
-                <div className="product-image">
-                    <a href="#" className="image">
-                        <img className="pic-1" src={image} />
-                        <img className="pic-2" src={image1} />
-                    </a>
-                     <span className="product-sale-label">sale!</span>
-                    <ul className="social">
-                        <li><a href="#" data-tip="Add to wishlist"><i className="fa fa-heart"></i></a></li>
-                    </ul>
-                    <div className="product-rating">
-                        <ul className="rating">
-                            <li className="fas fa-star"></li>
-                            <li className="fas fa-star"></li>
-                            <li className="fas fa-star"></li>
-                            <li className="far fa-star"></li>
-                            <li className="far fa-star"></li>
-                        </ul>
-                        <a className="add-to-cart" href="#"> ADD TO CART </a>
-                    </div>
-                </div>
-                <div className="product-content">
-                    <h3 className="title"><a href="#">Men's Shirt</a></h3>
-                    <div className="price"><span>$28.00</span>$20.00</div>
-                </div>
+import "./Product.css";
+const Product = ({product}) => {
+   
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-12 col-md-4 col-sm-12 col-xs-12">
+          <div className="card pl-4 pr-3 py-2">
+            <div className="div1 row py-4 px-2">
+              <div className="col-6 d-flex justify-content-center">
+                {" "}
+                <img
+                  src={product.productImage}
+                  height=""
+                  width="150%"
+                  alt={product.productName}
+                />{" "}
+              </div>
+              <div className="col-3 d-flex flex-column pl-4">
+                {" "}
+                <i
+                  className="fa fa-heart fa-lg mt-4"
+                  aria-hidden="true"
+                ></i>{" "}
+              </div>
             </div>
+            <div className="py-2">
+              <h5>{product.productName}</h5>
+              <p> {product.like} </p>
+              <div className="d-flex">
+                <h5 className="align-self-center">{product.productPrice} TNT</h5>{" "}
+                <button className="buy d-flex ml-5 font-weight-bold pl-4 pr-5 py-2 border-0">
+                  {" "}
+                  Buy{" "}
+                </button>{" "}
+                <span className="cart text-white d-flex p-2">
+                  <i
+                    className="fa fa-shopping-cart fa-lg align-self-center"
+                    aria-hidden="true"
+                  ></i>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-
-        
+      </div>
     </div>
-</div>
-    )
-}
+  );
+};
 
-export default Product
+export default Product;

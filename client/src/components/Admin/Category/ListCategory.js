@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import Category from "./Category";
-import EditAddCategory from "./EditAddCategory";
 
 const ListCategory = () => {
   const Categorys = useSelector((state) => state.categoryReducer.categorys);
@@ -39,7 +38,6 @@ const ListCategory = () => {
                     </th>
                     <th className="border-0 text-uppercase font-medium"></th>
                     <th className="border-0 text-uppercase font-medium">
-                      <EditAddCategory />
                     </th>
 
                   </tr>

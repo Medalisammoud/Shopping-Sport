@@ -15,11 +15,13 @@ import { currentUser } from "./js/Action/actionUser";
 import Errors404 from "./components/PageNotFound/Errors404";
 import Admin from "./components/Admin/Admin";
 import PrivateRouteAdmin from "./components/Router/PrivateRouteAdmin";
+import { getAllProduct } from "./js/Action/actionProduct";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(currentUser());
+    dispatch( getAllProduct() )
   }, [dispatch]);
   return (
     <div className="App">

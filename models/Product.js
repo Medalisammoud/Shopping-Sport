@@ -20,6 +20,10 @@ const productSchema = new Schema({
         type : String,
         required : true
     },
+    like:{
+        type : Number,
+        default : 0
+    },
     productDesc: String,
     productCategory:{
         type : ObjectId,

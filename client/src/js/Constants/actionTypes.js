@@ -14,4 +14,11 @@ export const GET_CATEGORY = "GET_CATEGORY";
 export const LOAD_CATEGORY = "LOAD_CATEGORY";
 export const FAIL_CATEGORY = "FAIL_CATEGORY";
 
+//Action Type Product
+export const GET_ALL_PRODUCT = "GET_ALL_PRODUCT";
+export const GET_PRODUCT = "GET_PRODUCT";
+
+export const LOAD_PRODUCT = "LOAD_CATEGORY";
+export const FAIL_PRODUCT= "FAIL_PRODUCT";
+
 

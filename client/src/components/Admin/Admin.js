@@ -7,6 +7,8 @@ import ListUser from './ListUsers/ListUser';
 import { getAllUsers } from "../../js/Action/actionUser";
 import ListCategory from './Category/ListCategory';
 import { getAllCategory } from '../../js/Action/actionCategory';
+import { getAllProduct } from '../../js/Action/actionProduct';
+import ListProduct from './Product/ListProduct';
 
 const Admin = () => {
     const dispatch = useDispatch(); 
@@ -19,10 +21,11 @@ const Admin = () => {
       image : ''
   });
   useEffect(() => {
+    setEditAdmin(admin);
     dispatch(getAllUsers());
     dispatch(getAllCategory());
-    setEditAdmin(admin);
-  }, [dispatch]);
+    dispatch(getAllProduct())
+  }, [admin,dispatch]);
 
     return (
         <div className="container emp-profile">
@@ -52,7 +55,7 @@ const Admin = () => {
                                     <a className="nav-link" id="Categorys-tab" data-toggle="tab" href="#Categorys" role="tab" aria-controls="Categorys" aria-selected="false">Categorys</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" id="Products" data-toggle="tab" href="#Products" role="tab" aria-controls="Products" aria-selected="false">Products</a>
+                                    <a className="nav-link" id="Products-tab" data-toggle="tab" href="#Products" role="tab" aria-controls="Products" aria-selected="false">Products</a>
                                 </li>
                             </ul>
                         </div>
@@ -107,6 +110,7 @@ const Admin = () => {
                             </div>
                             <ListUser />
                             <ListCategory />
+                            <ListProduct />
                         </div>
                     </div>
                 </div>

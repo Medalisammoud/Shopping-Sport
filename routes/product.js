@@ -19,7 +19,8 @@ router.get('/',getProduct)
  * @method : POST
  * @data : req.body
  */
- router.post('/add',upload.single('productImage'),addProduct)
+//  router.post('/add',upload.single('productImage'),addProduct)
+ router.post('/add',addProduct)
 
  /**
  * @desc : Route get product
@@ -35,7 +36,8 @@ router.get('/',getProduct)
  * @method : PUT
  * @data : req.params , req.body
  */
-  router.put('/update/:id',upload.single('productImage'),updateProduct)
+  //router.put('/update/:id',upload.single('productImage'),updateProduct)
+  router.put('/update/:id',updateProduct)
 
    /**
  * @desc : Route Delete product

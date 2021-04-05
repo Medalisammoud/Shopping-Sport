@@ -30,7 +30,7 @@ const EditAdmin = () => {
   return (
     <>
     <div className="col-md-2">
-        <button type="submit" className="profile-edit-btn" onClick={handleShow}>Edit Admin</button>
+        <Button type="submit" className="outline-warning profile-edit-btn" onClick={handleShow}>Edit Admin</Button>
     </div>
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
