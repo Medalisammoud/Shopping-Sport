@@ -1,53 +1,34 @@
 import React from "react";
 
 import "./Product.css";
-const Product = ({product}) => {
-   
+const Product = ({ product }) => {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-12 col-md-4 col-sm-12 col-xs-12">
-          <div className="card pl-4 pr-3 py-2">
-            <div className="div1 row py-4 px-2">
-              <div className="col-6 d-flex justify-content-center">
-                {" "}
-                <img
-                  src={product.productImage}
-                  height=""
-                  width="150%"
-                  alt={product.productName}
-                />{" "}
+      
+        <div className="col-md-4">
+          <figure className="card card-product">
+            <div className="img-wrap">
+              <img src={product.productImage} alt={product.productName} />
+            </div>
+            <figcaption className="info-wrap">
+              <h4 className="title">{product.productName}</h4>
+              <p className="desc">Some small description goes here</p>
+              <div className="rating-wrap">
+                <div className="label-rating">{product.like} Likes</div>
+                <div className="label-rating">154 orders </div>
               </div>
-              <div className="col-3 d-flex flex-column pl-4">
-                {" "}
-                <i
-                  className="fa fa-heart fa-lg mt-4"
-                  aria-hidden="true"
-                ></i>{" "}
+            </figcaption>
+            <div className="bottom-wrap">
+              <a href="" className="btn btn-sm btn-primary float-right">
+                Order Now
+              </a>
+              <div className="price-wrap h5">
+                <span className="price-new">TND {product.productPrice}</span>
               </div>
             </div>
-            <div className="py-2">
-              <h5>{product.productName}</h5>
-              <p> {product.like} </p>
-              <div className="d-flex">
-                <h5 className="align-self-center">{product.productPrice} TNT</h5>{" "}
-                <button className="buy d-flex ml-5 font-weight-bold pl-4 pr-5 py-2 border-0">
-                  {" "}
-                  Buy{" "}
-                </button>{" "}
-                <span className="cart text-white d-flex p-2">
-                  <i
-                    className="fa fa-shopping-cart fa-lg align-self-center"
-                    aria-hidden="true"
-                  ></i>
-                </span>
-              </div>
-            </div>
-          </div>
+          </figure>
         </div>
-      </div>
-    </div>
   );
 };
 
 export default Product;
+

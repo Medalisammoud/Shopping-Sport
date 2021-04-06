@@ -1,51 +1,42 @@
-
-
-.card {
-    background-color: #ffffff;
-    border-radius: 20px
+.card-product{
+    margin-top: 100px;
 }
-.card img{
-    width: 100%;
-    height: auto;
-}
-p {
-    color: #b7b1b1;
-    font-weight: 500
-}
-
-.discBtn {
-    background-color: #21afa7;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.fa-heart {
-    color: #f05c5d
-}
-
-.fa-balance-scale {
-    color: #968888
-}
-
-.buy {
-    border-radius: 20px;
-    background-color: #e8f6f6;
-    color: #2bc4ba
-}
-
-.cart {
-    background-color: #2bc4ba;
-    border-radius: 30px;
+.card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
     position: relative;
-    right: 35px
+    height: 220px;
+    text-align: center;
+}
+.card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
 }
 
-.btn:focus {
-    outline: none;
-    box-shadow: none
+.rating-wrap{
+    display: flex;
+    justify-content: space-between;
 }
 
-*:focus {
-    outline: none
+.label-rating { 
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card-product .price-old {
+    color: #999;
+}
+.card-product .title{
+    font-size: 16px;
 }

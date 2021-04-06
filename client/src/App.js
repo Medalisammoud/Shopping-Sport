@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom"
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -16,13 +16,19 @@ import Errors404 from "./components/PageNotFound/Errors404";
 import Admin from "./components/Admin/Admin";
 import PrivateRouteAdmin from "./components/Router/PrivateRouteAdmin";
 import { getAllProduct } from "./js/Action/actionProduct";
+import { getAllCategory } from "./js/Action/actionCategory";
+import ListProduct from "./components/Products/ListProduct/ListProduct";
 
 function App() {
   const dispatch = useDispatch();
+  const category = useSelector(state => state.categoryReducer.categorys)
+  const [categoryData, setCategoryData] = useState([])
   useEffect(() => {
     dispatch(currentUser());
-    dispatch( getAllProduct() )
-  }, [dispatch]);
+    dispatch( getAllProduct());
+    dispatch(getAllCategory());
+    setCategoryData(category);
+  }, [dispatch,category]);
   return (
     <div className="App">
      <NavBar />
@@ -32,6 +38,11 @@ function App() {
        <Route  path="/signin" component={ SignIn } />
        <PrivateRouteUser path="/profile" component={Profile} />
        <PrivateRouteAdmin path="/admin" component={Admin} />
+       {
+         categoryData.map(ctg => <Route  path={`/${ctg.categoryName}`} key={ctg._id}>
+           <ListProduct id={ctg._id} /> 
+           </Route>)
+       }
        <Route path="/*" component={Errors404} />
      </Switch>
      <Footer />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { logout } from "../../js/Action/actionUser";
@@ -9,7 +9,12 @@ const NavBar = () => {
   
   const isAuth = useSelector(state => state.userReducer.isAuth)
   const admin = useSelector(state => state.userReducer.admin)
+  const category = useSelector(state => state.categoryReducer.categorys)
+  const [categoryData, setCategoryData] = useState([])
   const dispatch = useDispatch()
+  useEffect(() => {
+    setCategoryData(category)
+  }, [category])
 
   return (
     <div className="header-blue">
@@ -28,31 +33,18 @@ const NavBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="nav navbar-nav">
-              <li className="nav-item" role="presentation">
-                <Link to="/"  className="nav-link active">
+              
+            <li className="nav-item" role="presentation">
+              <Link to="/"  className="nav-link active">
                   Home
                 </Link>
-              </li>
-              <li className="dropdown">
-                <span
-                  className="dropdown-toggle nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Menu
-                </span>
-                <div className="dropdown-menu" role="menu">
-                  <Link to="#"  className="dropdown-item" role="presentation" >
-                    First Item
-                  </Link>
-                  <Link to="#"  className="dropdown-item" role="presentation">
-                    Second Item
-                  </Link>
-                  <Link to="#"  className="dropdown-item" role="presentation">
-                    Third Item
-                  </Link>
-                </div>
-              </li>
+            </li>
+               {
+              categoryData.map(ctg =><li className="nav-item" role="presentation"key={ctg._id} >
+                <Link to={`/${ctg.categoryName}`}  className="nav-link active"  >
+                  {ctg.categoryName}
+                </Link></li>)
+                }
             </ul>
             <form className="form-inline mr-auto" target="_self">
               <div className="form-group">
