@@ -9,6 +9,9 @@ import ListCategory from './Category/ListCategory';
 import { getAllCategory } from '../../js/Action/actionCategory';
 import { getAllProduct } from '../../js/Action/actionProduct';
 import ListProduct from './Product/ListProduct';
+import { getAllOrder } from '../../js/Action/actionOrder';
+
+import ListOrder from './Order/ListOrder';
 
 const Admin = () => {
     const dispatch = useDispatch(); 
@@ -24,7 +27,8 @@ const Admin = () => {
     setEditAdmin(admin);
     dispatch(getAllUsers());
     dispatch(getAllCategory());
-    dispatch(getAllProduct())
+    dispatch(getAllProduct());
+    dispatch(getAllOrder());
   }, [admin,dispatch]);
 
     return (
@@ -56,6 +60,9 @@ const Admin = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" id="Products-tab" data-toggle="tab" href="#Products" role="tab" aria-controls="Products" aria-selected="false">Products</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" id="Order-tab" data-toggle="tab" href="#Order" role="tab" aria-controls="Order" aria-selected="false">Orders</a>
                                 </li>
                             </ul>
                         </div>
@@ -111,6 +118,7 @@ const Admin = () => {
                             <ListUser />
                             <ListCategory />
                             <ListProduct />
+                            <ListOrder />
                         </div>
                     </div>
                 </div>

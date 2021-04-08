@@ -4,23 +4,26 @@ import { Link } from "react-router-dom"
 import { logout } from "../../js/Action/actionUser";
 
 import "./NavBar.css";
+import logo from "../../assets/Logo.jpg"
+import panel from "../../assets/panel.png"
 
-const NavBar = () => {
+const NavBar = ({setInputSearch}) => {
   
   const isAuth = useSelector(state => state.userReducer.isAuth)
   const admin = useSelector(state => state.userReducer.admin)
   const category = useSelector(state => state.categoryReducer.categorys)
+  const panelCount = useSelector(state => state.orderReducer.countPanel)
   const [categoryData, setCategoryData] = useState([])
   const dispatch = useDispatch()
   useEffect(() => {
     setCategoryData(category)
   }, [category])
-
   return (
     <div className="header-blue">
       <nav className="navbar navbar-dark navbar-expand-md navigation-clean-search">
         <div className="container">
           <Link to="/" className="navbar-brand" >
+          <img className="logo" src={logo} alt="shopping" />
           Shopping Sport Equipment
           </Link>
           <button
@@ -56,9 +59,16 @@ const NavBar = () => {
                   type="search"
                   name="search"
                   id="search-field"
+                  onChange={(e)=>setInputSearch(e.target.value)}
                 />
               </div>
             </form>
+            <div className="panel" >
+            <Link to="/panel">
+              <img src={panel} alt="panel" />
+            </Link>
+            <span className="countPanel">{panelCount}</span>
+            </div>
             {
               isAuth ?  
             <div className="dropdown">

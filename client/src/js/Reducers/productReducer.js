@@ -15,8 +15,8 @@ const productReducer = (state = initialState,{type, payload}) =>{
         case GET_ALL_PRODUCT :
             return {
                 ...state,
+                loadProduct : false ,
                 products : payload.products,
-                loadProduct : false,
                 errors : {}
             };
         case FAIL_PRODUCT:

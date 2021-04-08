@@ -26,7 +26,7 @@ const SignIn = ({ history }) => {
         <div className="col-md-8 col-lg-6">
           <div className="login d-flex align-items-center py-5">
             <div className="container">
-            {errors.length > 0 ? <div style={{display:"flex"}}> {errors.map((el,i) => <Errors key={i} error={el} />)}</div> : null}
+            {errors.length > 0 && <div style={{display:"flex"}}> {errors.map((el,i) => <Errors key={i} error={el} />)}</div> }
               <div className="row">
                 <div className="col-md-9 col-lg-8 mx-auto">
                   <h3 className="login-heading mb-4">Welcome back!</h3>

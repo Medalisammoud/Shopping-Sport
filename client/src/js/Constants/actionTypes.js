@@ -21,4 +21,12 @@ export const GET_PRODUCT = "GET_PRODUCT";
 export const LOAD_PRODUCT = "LOAD_CATEGORY";
 export const FAIL_PRODUCT= "FAIL_PRODUCT";
 
+//Action Types Order
+export const GET_ALL_ORDER = "GET_ALL_ORDER";
+export const ADD_PANEL = "ADD_PANEL";
+export const DELETE_PRODUCT_PANEL = "DELETE_PRODUCT_PANEL";
+
+export const LOAD_ORDER = "LOAD_ORDER";
+export const FAIL_ORDER= "FAIL_ORDER";
+
 

@@ -72,6 +72,7 @@ const AddProduct = () => {
               name="productName"
               value={productData.productName}
               onChange={handleChange}
+              required
             />
           </Form.Group>
 
@@ -83,6 +84,7 @@ const AddProduct = () => {
               name="productDesc"
               value={productData.productDesc}
               onChange={handleChange}
+              required
             />
           </Form.Group>
           <Form.Group>
@@ -92,6 +94,7 @@ const AddProduct = () => {
               name="productPrice"
               value={productData.productPrice}
               onChange={handleChange}
+              required
             />
           </Form.Group>
           <Form.Group>
@@ -103,6 +106,7 @@ const AddProduct = () => {
               name="productQty"
               value={productData.productQty}
               onChange={handleChange}
+              required
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect2">
@@ -111,6 +115,7 @@ const AddProduct = () => {
               as="select"
               name="productCategory"
               onChange={handleChange}
+              required
             >
                 <option value=''>
 					Choose one...

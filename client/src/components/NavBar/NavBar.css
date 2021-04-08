@@ -29,6 +29,7 @@ background:linear-gradient(135deg, #172a74, #21a9af);
 .header-blue .navbar .navbar-brand {
   font-weight:bold;
   color:inherit;
+  margin-left: -170px;
 }
 
 .header-blue .navbar .navbar-brand:hover {
@@ -216,3 +217,22 @@ background:linear-gradient(135deg, #172a74, #21a9af);
   opacity:0.2;
 }
 
+.logo{
+  width: 40px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.panel{
+  margin-right: 30px;
+}
+.panel img{
+  width: 30px;
+  border-radius: 10px;
+}
+.countPanel{
+  position: absolute;
+  top: 40px;
+  font-size: 18px;
+  color: rgb(233, 107, 107);
+  font:bold;
+}

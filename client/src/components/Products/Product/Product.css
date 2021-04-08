@@ -21,6 +21,8 @@
 .card-product .bottom-wrap {
     padding: 15px;
     border-top: 1px solid #eee;
+    display: flex;
+    justify-content:space-between;
 }
 
 .rating-wrap{
@@ -33,7 +35,10 @@
     display: inline-block;
     vertical-align: middle;
 }
-
+.label-rating img{
+    width: 20px;
+    cursor: pointer;
+}
 .card-product .price-old {
     color: #999;
 }

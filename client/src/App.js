@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 
+
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
@@ -18,11 +19,15 @@ import PrivateRouteAdmin from "./components/Router/PrivateRouteAdmin";
 import { getAllProduct } from "./js/Action/actionProduct";
 import { getAllCategory } from "./js/Action/actionCategory";
 import ListProduct from "./components/Products/ListProduct/ListProduct";
+import Panel from "./components/Panel/ListPanel";
+import ProductDesc from "./components/ProductDesc/ProductDesc";
 
 function App() {
   const dispatch = useDispatch();
   const category = useSelector(state => state.categoryReducer.categorys)
+  
   const [categoryData, setCategoryData] = useState([])
+  const [inputSearch, setInputSearch] = useState("")
   useEffect(() => {
     dispatch(currentUser());
     dispatch( getAllProduct());
@@ -31,18 +36,20 @@ function App() {
   }, [dispatch,category]);
   return (
     <div className="App">
-     <NavBar />
+     <NavBar setInputSearch={setInputSearch}/>
      <Switch>
-       <Route exact path="/" component={ Home } />
+       <Route exact path="/" ><Home inputSearch={inputSearch}/></Route>
        <Route  path="/signup" component={ SignUp } />
        <Route  path="/signin" component={ SignIn } />
        <PrivateRouteUser path="/profile" component={Profile} />
        <PrivateRouteAdmin path="/admin" component={Admin} />
        {
          categoryData.map(ctg => <Route  path={`/${ctg.categoryName}`} key={ctg._id}>
-           <ListProduct id={ctg._id} /> 
+           <ListProduct id={ctg._id} inputSearch={inputSearch}/> 
            </Route>)
        }
+       <Route path="/product/:id" component={ProductDesc} />
+       <Route path="/panel" component={Panel} />
        <Route path="/*" component={Errors404} />
      </Switch>
      <Footer />

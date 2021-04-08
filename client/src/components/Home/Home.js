@@ -4,11 +4,11 @@ import ListProduct from '../Products/ListProduct/ListProduct'
 import Slide from './Slide'
 
 
-const Home = () => {
+const Home = ({inputSearch}) => {
     return (
         <div>
             <Slide />
-            <ListProduct />
+            <ListProduct inputSearch={inputSearch} />
         </div>
     )
 }

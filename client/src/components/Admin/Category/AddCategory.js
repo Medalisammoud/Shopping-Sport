@@ -11,8 +11,8 @@ const AddCategory = () => {
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
     e.preventDefault();
-    setShow(true);
     setCategoryData({categoryName : ''});
+    setShow(true);
   };
 
   return (
@@ -33,6 +33,7 @@ const AddCategory = () => {
               type="text"
                value={categoryData.categoryName}
                onChange={(e)=>setCategoryData({categoryName : e.target.value})}
+               required="true"
             />
           </Form.Group>
         </Modal.Body>
