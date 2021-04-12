@@ -11,8 +11,10 @@ const ProductDesc = ({ match, history }) => {
     products.find((prt) => prt._id === match.params.id)
   );
   return (
+    
     <div className="container bootdey" >
       <div className="col-md-12">
+      {!product ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
         <section className="panel" style={{margin:"50px 0"}}>
           <div className="panel-body" style={{display:"flex"}} >
             <div className="col-md-6">
@@ -50,25 +52,9 @@ const ProductDesc = ({ match, history }) => {
             </div>
           </div>
         </section>
+      }
       </div>
     </div>
-
-    // <div>
-    //     <div classNameName="card1">
-
-    //     <div classNameName="thumbnail"><iframe classNameName="embed-responsive-item" title={product.productName} src={product.productImage} ></iframe></div>
-    //     <div classNameName="right">
-    //         <h1>{product.productName}</h1>
-
-    //         <div classNameName="separator"></div>
-    //         <p>{product.productDesc}</p>
-    //     </div>
-    //         <div classNameName="fab"><button classNameName="btn btn-block btn-light" onClick={()=> history.goBack()}>
-    //           Continue Shopping
-    //         </button></div>
-
-    //     </div>
-    // </div>
   );
 };
 

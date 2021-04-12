@@ -1,6 +1,6 @@
 //require express
 const express = require("express");
-const { getOrder, addOrder } = require("../controllers/order");
+const { getOrder, addOrder, updateOrder } = require("../controllers/order");
 
 //reqquire router
 const router = express.Router();
@@ -15,11 +15,19 @@ router.get('/', getOrder)
 
 /**
  * @desc : Route Add New Order
- * @path : 'http://localhost:8000/api/Order/add'
+ * @path : 'http://localhost:8000/api/order/add'
  * @method : POST
  * @data : req.body
  */
  router.post('/add',addOrder)
+
+ /**
+ * @desc : Route Update Order
+ * @path : 'http://localhost:8000/api/order/update'
+ * @method : Put
+ * @data : req.body , req.params
+ */
+  router.put('/update/:id',updateOrder)
 
 
 

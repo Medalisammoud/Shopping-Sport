@@ -42,7 +42,8 @@ const ListCategory = () => {
 
                   </tr>
                 </thead>
-                {categorys.map((category, i) => (
+                {!categorys.length ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
+                categorys.map((category, i) => (
                   <Category key={category._id} category={category} i={i} />
                 ))}
               </table>

@@ -7,7 +7,9 @@ import EditProduct from './EditProduct';
 
 const Product = ({product, i}) => {
   const dispatch = useDispatch()
+  console.log(product)
     return (
+      <tbody>
         <tr>
       <td className="pl-4">{i+1}</td>
       <td>
@@ -40,6 +42,7 @@ const Product = ({product, i}) => {
        <AddProduct />
       </td>
     </tr>
+    </tbody>
     )
 }
 

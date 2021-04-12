@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from "react-redux"
-import {Spinner} from 'react-bootstrap'
+
 
 import Product from '../Product/Product'
 import "./ListProduct.css"
@@ -8,16 +8,15 @@ import "./ListProduct.css"
 
 
 
-const ListProduct = ({id, inputSearch}) => {
+const ListProduct = ({category, inputSearch}) => {
     const products = useSelector(state => state.productReducer.products)
-    const load = useSelector(state => state.productReducer.loadProduct)
     const [productData, setProductData] = useState([])
     useEffect(() => {
-        id ?
-        setProductData(products.filter(prd => prd.productCategory._id === id))
+        category ?
+        setProductData(products.filter(prd => {return prd.productCategory.categoryName === category}))
         :
         setProductData(products)
-    }, [id,products])
+    }, [products,category])
     return (
         
         <div className="container">

@@ -24,18 +24,26 @@ const ListPanel = ({ history }) => {
     expiration : "",
     cvv : ""
 })
+  alert && setTotal(0);
   setTimeout(() => {
     alert && setAlert(false)
   }, 3000);
+  
   useEffect(() => {
     setOrders(products);
+  }, [products]);
+
+  useEffect(() => {
     setTotal(sumPrice);
+  }, [sumPrice]);
+  
+  useEffect(() => {
     setNewOrder({
       orderUser : user._id,
       product : orders
     })
-  }, [sumPrice, products]);
-  alert && setTotal(0);
+  }, [user, orders]);
+  
   return (
     <div>
       <section className="jumbotron text-center">

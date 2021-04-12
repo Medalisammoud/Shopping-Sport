@@ -28,12 +28,15 @@ function App() {
   
   const [categoryData, setCategoryData] = useState([])
   const [inputSearch, setInputSearch] = useState("")
+  
   useEffect(() => {
     dispatch(currentUser());
-    dispatch( getAllProduct());
+    dispatch(getAllProduct());
     dispatch(getAllCategory());
+  },[dispatch]);
+  useEffect(() => {
     setCategoryData(category);
-  }, [dispatch,category]);
+  }, [category])
   return (
     <div className="App">
      <NavBar setInputSearch={setInputSearch}/>
@@ -43,10 +46,10 @@ function App() {
        <Route  path="/signin" component={ SignIn } />
        <PrivateRouteUser path="/profile" component={Profile} />
        <PrivateRouteAdmin path="/admin" component={Admin} />
-       {
-         categoryData.map(ctg => <Route  path={`/${ctg.categoryName}`} key={ctg._id}>
-           <ListProduct id={ctg._id} inputSearch={inputSearch}/> 
-           </Route>)
+       {categoryData.length &&
+         categoryData.map(ctg =>{ return <Route  path={`/${ctg.categoryName}`} key={ctg._id}>
+           <ListProduct category={ctg.categoryName} inputSearch={inputSearch}/> 
+           </Route>})
        }
        <Route path="/product/:id" component={ProductDesc} />
        <Route path="/panel" component={Panel} />

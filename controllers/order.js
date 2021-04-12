@@ -27,3 +27,17 @@ exports.getOrder = async (req, res) => {
     res.status(400).send({ errors: [{ msg: "can not get Order" }] });
   }
 }
+
+//update Order
+exports.updateOrder = async( req, res )=>{
+    try {
+        const result = await Order.updateOne({_id : req.params.id}, {$set : req.body})
+        if(!result.nModified){
+            res.status(400).send({msg : "Order Already Updated !!!", error})
+            return;
+        }
+        res.status(200).send({msg : 'Order is Updated ...', result})
+    } catch (error) {
+        res.status(400).send({msg : "Can Not Updated Order with this id !!!", error})
+    }
+}

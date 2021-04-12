@@ -1,6 +1,6 @@
 const Category = require("../models/Category");
 const Product = require("../models/Product");
-const fs = require('fs');
+//const fs = require('fs');
 
 
 //Add New Procuct
@@ -96,13 +96,6 @@ exports.updateProduct = async( req, res )=>{
 //Delete Product
 exports.deleteProduct = async (req, res) =>{
     try {
-        const oldProduct = await Product.findById({_id : req.params.id});
-        fs.unlink(oldProduct.productImage, err => {
-        if (err) {
-            console.log(err);
-        }
-        console.log('Image successfully deleted from the filesystem');
-        });
         await Product.deleteOne({_id : req.params.id})
         res.status(200).send({msg : 'Product is Deleted ...'})
     } catch (error) {

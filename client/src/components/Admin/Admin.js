@@ -25,12 +25,15 @@ const Admin = () => {
   });
   useEffect(() => {
     setEditAdmin(admin);
-    dispatch(getAllUsers());
-    dispatch(getAllCategory());
-    dispatch(getAllProduct());
-    dispatch(getAllOrder());
-  }, [admin,dispatch]);
-
+    }, [admin])
+  useEffect(() => {
+      dispatch(getAllUsers());
+      dispatch(getAllCategory());
+      dispatch(getAllProduct());
+      dispatch(getAllOrder());
+      
+  }, [dispatch]);
+    
     return (
         <div className="container emp-profile">
             <form>

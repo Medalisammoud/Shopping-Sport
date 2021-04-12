@@ -14,6 +14,14 @@ const orderSchema = new Schema({
     createdAt : {
         type : Date,
         default : new Date()
+    },
+    cancel : {
+        type : Boolean,
+        default : false
+    },
+    livrer : {
+        type : Boolean,
+        default : false
     }
 })
 

@@ -24,6 +24,17 @@ export const addOrder = (newOrder) => async (dispatch) =>{
     }
 } 
 
+//update Order
+export const updateOrder = (id , order) => async (dispatch) =>{
+    try {
+        await axios.put(`/api/order/update/${id}`,order)
+        dispatch(getAllOrder())
+    } catch (error) {
+        console.log(error);
+        dispatch({ type: FAIL_ORDER, payload: error.response.data.msg })
+    }
+} 
+
 //add panel
 export const addPanel = (products) =>{
     return {

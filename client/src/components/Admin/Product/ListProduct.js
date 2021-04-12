@@ -4,12 +4,12 @@ import { useSelector } from "react-redux";
 import Product from "./Product";
 
 const ListProduct = () => {
-    const Products = useSelector((state) => state.productReducer.products);
-    const [products, setProducts] = useState([]);
+    const products = useSelector((state) => state.productReducer.products);
+    const [productsData, setProductsData] = useState([]);
   
     useEffect(() => {
-      setProducts(Products);
-    }, [Products]);
+      setProductsData(products);
+    }, [products]);
 
     return (
         <div
@@ -47,7 +47,8 @@ const ListProduct = () => {
                     
                   </tr>
                 </thead>
-                {products.map((product, i) => (
+                {!productsData.length ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
+                productsData.map((product, i) => (
                   <Product key={product._id} product={product} i={i} />
                 ))}
               </table>

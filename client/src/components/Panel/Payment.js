@@ -15,12 +15,12 @@ const Payment = ({setAlert,payment, setPayment ,newOrder}) => {
     setShow(true);
   };
 
-  const handlePayment =(e)=>{
-    e.preventDefault();
+  const handlePayment =()=>{
+    setAlert(true);
     dispatch(addOrder(newOrder));
-    setAlert(true)
     handleClose();
   }
+  
   return (
     <>
       <button
@@ -47,16 +47,15 @@ const Payment = ({setAlert,payment, setPayment ,newOrder}) => {
                         name="card-num"
                         onChange={(e)=>setPayment({...payment,codeCard : e.target.value})}
                         value={payment.codeCard}
-                        size="17"
                         id="cno"
                         required
-                        minlength="19"
-                        maxlength="19"
+                        
                       />{" "}
                       <img
                         src="https://img.icons8.com/color/48/000000/visa.png"
                         width="64px"
                         height="60px"
+                        alt="payment"
                       />
                     </div>
                     <div className="form-group">
@@ -80,10 +79,7 @@ const Payment = ({setAlert,payment, setPayment ,newOrder}) => {
                             onChange={(e)=>setPayment({...payment,expiration : e.target.value})}
                             value={payment.expiration}
                             placeholder="MM/YYYY"
-                            size="7"
                             id="exp"
-                            minlength="7"
-                            maxlength="7"
                             required
                           />
                         </div>
@@ -95,8 +91,8 @@ const Payment = ({setAlert,payment, setPayment ,newOrder}) => {
                             onChange={(e)=>setPayment({...payment,cvv : e.target.value})}
                             value={payment.cvv}
                             size="1"
-                            minlength="3"
-                            maxlength="3"
+                            minLength="3"
+                            maxLength="3"
                             required
                           />
                         </div>

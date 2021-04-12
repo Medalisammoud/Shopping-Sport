@@ -74,6 +74,10 @@ exports.SignIn = async (req, res) => {
       process.env.SECRET_KEY,
       { expiresIn: "24h" }
     );
+    if(!searchUser.activeUser){
+      res.status(400).send({ errors: [{ msg: "This Account Is Disabled " }] });
+      return;
+    }
 
     // send the details + a key
     res.status(200).send({ msg: "auth success", user: searchUser, token });

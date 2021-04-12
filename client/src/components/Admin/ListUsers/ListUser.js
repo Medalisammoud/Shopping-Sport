@@ -8,10 +8,10 @@ import User from "./User";
 const ListUser = () => {
   
   const Users = useSelector((state) => state.userReducer.users);
-  const [users, setUsers] = useState([]);
+  const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
-    setUsers(Users)
+    setUsersData(Users)
   }, [Users]);
   return (
     <div
@@ -63,11 +63,17 @@ const ListUser = () => {
                     >
                       Role
                     </th>
+                    <th
+                      scope="col"
+                      className="border-0 text-uppercase font-medium"
+                    >
+                      Disabled Account
+                    </th>
                   </tr>
                 </thead>
                 
-                  {
-                      users.map((user,i) => <User key={user._id} user={user} i={i} /> )
+                  {!usersData.length ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
+                      usersData.map((user,i) => <User key={user._id} user={user} i={i} /> )
                   }
                 
               </table>

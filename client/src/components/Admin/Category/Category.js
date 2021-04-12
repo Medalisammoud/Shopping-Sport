@@ -7,6 +7,7 @@ import EditCategory from "./EditCategory";
 const Category = ({category,i}) => {
     const dispatch = useDispatch()
   return (
+    <tbody>
     <tr>
       <td className="pl-4">{i+1}</td>
       <td>
@@ -24,6 +25,7 @@ const Category = ({category,i}) => {
        <AddCategory />
       </td>
     </tr>
+    </tbody>
   );
 };
 

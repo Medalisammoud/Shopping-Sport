@@ -39,9 +39,13 @@ const ListOrder = () => {
                       <th className="border-0 text-uppercase font-medium">Product Name</th>
                       <th className="border-0 text-uppercase font-medium">Price Total</th>
                       <th className="border-0 text-uppercase font-medium">Date</th>
+                      <th className="border-0 text-uppercase font-medium">Livrer</th>
+                      <th className="border-0 text-uppercase font-medium">Cancel</th>
+                      <th className="border-0 text-uppercase font-medium"></th>
                     </tr>
                   </thead>
-                   {ordersData.map((order, i) => (
+                   {!ordersData.length ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
+                   ordersData.map((order, i) => (
                     <Order key={order._id} order={order} i={i} />
                   ))} 
                 </table>
