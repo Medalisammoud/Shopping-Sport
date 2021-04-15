@@ -9,18 +9,27 @@ import like1 from "../../../assets/like1.png";
 
 import { updateProduct } from "../../../js/Action/actionProduct";
 import { addPanel } from "../../../js/Action/actionOrder";
+import { addFavorite, updateFavorite } from "../../../js/Action/actionFavorite";
 
 const Product = ({ product }) => {
   const [likeShow, setLikeShow] = useState(false);
   const isAuth = useSelector((state) => state.userReducer.isAuth);
+  const user = useSelector((state) => state.userReducer.user);
+  const favorite = useSelector((state) => state.favoriteReducer.favorite);
+  const [findFavorite, setFindFavorite] = useState({})
   const dispatch = useDispatch();
   useEffect(() => {
     setLikeShow(false);
   }, [isAuth]);
   const handleLike = () => {
-    !likeShow
-      ? dispatch(updateProduct(product._id, { like: product.like + 1 }))
-      : dispatch(updateProduct(product._id, { like: product.like - 1 }));
+    favorite.length && setFindFavorite(favorite.find(f => f.favoriteUser._id === user._id));
+    if(!likeShow){
+      dispatch(updateProduct(product._id, { like: product.like + 1 }))
+      !findFavorite ? dispatch(updateFavorite(user._id , { productFavorite : [ ...findFavorite.productFavorite, product]})) : dispatch(addFavorite({ favoriteUser : user._id, productFavorite : [product] }))
+    }
+    else{
+        dispatch(updateProduct(product._id, { like: product.like - 1 }));
+      } 
     setLikeShow(!likeShow);
   };
   return (
@@ -38,13 +47,15 @@ const Product = ({ product }) => {
           </p>
           <div className="rating-wrap">
             <div className="label-rating">{product.like} Likes</div>
+            
+           {isAuth &&
             <div className="label-rating">
               {likeShow ? (
                 <img src={like1} alt="like" onClick={handleLike} />
               ) : (
                 <img src={like} alt="like" onClick={handleLike} />
               )}{" "}
-            </div>
+            </div>}
           </div>
         </figcaption>
 

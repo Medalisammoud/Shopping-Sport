@@ -26,6 +26,7 @@ app.use("/api/user", require("./routes/user"));
 app.use("/api/category", require("./routes/category"));
 app.use("/api/product", require("./routes/product"));
 app.use("/api/order", require("./routes/order"));
+app.use("/api/favorite", require("./routes/favorite"));
 
 //Connect Server
 app.listen(PORT,(err) =>

@@ -21,6 +21,8 @@ import { getAllCategory } from "./js/Action/actionCategory";
 import ListProduct from "./components/Products/ListProduct/ListProduct";
 import Panel from "./components/Panel/ListPanel";
 import ProductDesc from "./components/ProductDesc/ProductDesc";
+import FavoriteProduct from "./components/Favorite/FavoriteProduct";
+import { getAllFavorite } from "./js/Action/actionFavorite";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +35,7 @@ function App() {
     dispatch(currentUser());
     dispatch(getAllProduct());
     dispatch(getAllCategory());
+    dispatch(getAllFavorite())
   },[dispatch]);
   useEffect(() => {
     setCategoryData(category);
@@ -53,6 +56,7 @@ function App() {
        }
        <Route path="/product/:id" component={ProductDesc} />
        <Route path="/panel" component={Panel} />
+       <Route path="/favorite" component={FavoriteProduct} />
        <Route path="/*" component={Errors404} />
      </Switch>
      <Footer />

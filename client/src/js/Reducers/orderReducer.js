@@ -19,6 +19,7 @@ const orderReducer = (state=initialState,{ type, payload })=>{
                 orders : payload.Orders,
                 countPanel : 0,
                 products : [],
+                sumPrice : 0,
                 loadOrder : false
             };
         case ADD_PANEL:

@@ -31,7 +31,6 @@ const Admin = () => {
       dispatch(getAllCategory());
       dispatch(getAllProduct());
       dispatch(getAllOrder());
-      
   }, [dispatch]);
     
     return (

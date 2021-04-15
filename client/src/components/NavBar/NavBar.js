@@ -83,6 +83,11 @@ const NavBar = ({setInputSearch}) => {
                   <Link to={admin ? "/admin" :"/profile"} className="dropdown-item">
                     My Account
                   </Link>
+                  {(isAuth && !admin) &&
+                    <Link to="/favorite" className="dropdown-item">
+                    Favorite Product
+                  </Link>
+                  }
                   <Link to="/" className="dropdown-item" onClick={()=>{dispatch(logout())}}>
                     Logout
                   </Link>

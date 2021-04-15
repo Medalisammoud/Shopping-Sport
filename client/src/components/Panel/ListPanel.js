@@ -24,7 +24,7 @@ const ListPanel = ({ history }) => {
     expiration : "",
     cvv : ""
 })
-  alert && setTotal(0);
+   
   setTimeout(() => {
     alert && setAlert(false)
   }, 3000);

@@ -43,7 +43,7 @@ export const addPanel = (products) =>{
     }
 }
 
-//add panel
+//delete panel
 export const deleteProductPanel = (id,qty) =>{
     return {
         type : DELETE_PRODUCT_PANEL,

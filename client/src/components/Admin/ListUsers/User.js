@@ -35,7 +35,7 @@ const User = ({user,i}) => {
         <span className="text-muted">{user.role===1 ? "Admin" : "User"}</span>
       </td>
       <td>
-      {active ?
+      {!active ?
         <Button variant="outline-success" onClick={handleUser}>Activate</Button>
         : <Button variant="outline-danger" onClick={handleUser}>Deactivated</Button>
         }
