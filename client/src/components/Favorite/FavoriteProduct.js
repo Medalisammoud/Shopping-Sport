@@ -14,7 +14,7 @@ const FavoriteProduct = () => {
         <div className="container">
             <h2 style={{marginLeft:"40%",marginTop:"5%"}}>My Favorite Product</h2>
             <div className="row mt-4 mb-5">
-                {(!favoriteData) ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
+                {!favoriteData.length ? <p style={{ marginTop:'10%', fontSize:"30px" }}>Loading...</p> :
                     favorite.find(f => f.favoriteUser._id === user._id)
                     .productFavorite
                     .map(fproduct => <Product product={fproduct} key={fproduct._id} />)
