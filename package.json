@@ -10,7 +10,9 @@
   "scripts": {
     "back": "nodemon server.js",
     "front": "cd client && npm start",
-    "dev": "concurrently \"npm run front\" \"npm run back\""
+    "dev": "concurrently \"npm run front\" \"npm run back\"",
+    "start": "node server.js",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --perfex client"
   },
   "keywords": [
     "[",
