@@ -8,9 +8,10 @@
     "npm" : "7.10.0"
   },
   "scripts": {
-    "back": "node server.js",
+    "back": "nodemon server.js",
     "front": "cd client && npm start",
-    "start": "concurrently \"npm run front\" \"npm run back\"",
+    "dev": "concurrently \"npm run front\" \"npm run back\"",
+    "start": "node server.js",
     "build": "cd client/ && npm install && npm run build"
   },
   "keywords": [
