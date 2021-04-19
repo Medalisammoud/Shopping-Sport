@@ -10,7 +10,8 @@
   "scripts": {
     "back": "node server.js",
     "front": "cd client && npm start",
-    "start": "concurrently \"npm run front\" \"npm run back\""
+    "start": "concurrently \"npm run front\" \"npm run back\"",
+    "build": "cd client/ && npm install && npm run build"
   },
   "keywords": [
     "[",
