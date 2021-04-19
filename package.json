@@ -4,8 +4,8 @@
   "description": "E-Commerce Application MERN Stack Shopping Sport",
   "main": "server.js",
   "engines": {
-    "node" : "15.6.0",
-    "npm" : "7.10.0"
+    "node": "15.6.0",
+    "npm": "7.10.0"
   },
   "scripts": {
     "back": "nodemon server.js",
