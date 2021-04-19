@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "E-Commerce Application MERN Stack Shopping Sport",
   "main": "server.js",
-  "engines": {
-    "node": "15.6.0",
-    "npm": "7.10.0"
-  },
   "scripts": {
     "back": "nodemon server.js",
     "front": "cd client && npm start",
