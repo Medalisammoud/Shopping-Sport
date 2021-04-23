@@ -9,7 +9,6 @@ const Order = ({order, i}) => {
   const dispatch = useDispatch()
   const [livrer, setLivrer] = useState(order.livrer)
   const [cancel, setCancel] = useState(order.cancel)
-  
     return (
       <tbody className={cancel && "cancel"}>
         <tr>
@@ -19,12 +18,12 @@ const Order = ({order, i}) => {
       </td>
       <td>
         <h5 className="font-medium mb-0">{
-        order.product>1 ? order.product.reduce((a,b)=>{return a.productName+" , " +b.productName},'' ) : order.product[0].productName
+        order.product.length > 0 ? order.product.reduce((a,b)=>{return a.productName+" , " +b.productName},'' ) : order.product[0].productName
         }</h5>
       </td>
       <td>
         <h5 className="font-medium mb-0">{
-        order.product>1 ? order.product.reduce((a,b)=>{return a.productPrice + b.productPrice},0 ) : order.product[0].productPrice
+        order.product.length > 0 ? order.product.reduce((a,b)=>{return a.productPrice + b.productPrice},0 ) : order.product[0].productPrice
         }</h5>
       </td>
       <td>

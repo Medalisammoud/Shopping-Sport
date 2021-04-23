@@ -7,7 +7,7 @@ import EditProduct from './EditProduct';
 
 const Product = ({product, i}) => {
   const dispatch = useDispatch()
-  console.log(product)
+  
     return (
       <tbody>
         <tr>
