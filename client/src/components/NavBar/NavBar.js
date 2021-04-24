@@ -42,12 +42,25 @@ const NavBar = ({setInputSearch}) => {
                   Home
                 </Link>
             </li>
+            <li className="nav-item" role="presentation">
+            <div className="dropdown">
+               <span
+                  className="dropdown-toggle nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Menu
+                </span>
+                <div className="dropdown-menu" role="menu">
                {
-              categoryData.map(ctg =><li className="nav-item" role="presentation"key={ctg._id} >
-                <Link to={`/${ctg.categoryName}`}  className="nav-link active"  >
+              categoryData.map(ctg =>
+                <Link to={`/${ctg.categoryName}`} key={ctg._id} className="dropdown-item">
                   {ctg.categoryName}
-                </Link></li>)
+                </Link>)
                 }
+                </div>
+                </div>
+                </li>
             </ul>
             <form className="form-inline mr-auto" target="_self">
               <div className="form-group">

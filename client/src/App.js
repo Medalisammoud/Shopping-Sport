@@ -24,6 +24,8 @@ import ProductDesc from "./components/ProductDesc/ProductDesc";
 import FavoriteProduct from "./components/Favorite/FavoriteProduct";
 import { getAllFavorite } from "./js/Action/actionFavorite";
 
+import "./App.css"
+
 function App() {
   const dispatch = useDispatch();
   const category = useSelector(state => state.categoryReducer.categorys)
@@ -42,6 +44,7 @@ function App() {
   }, [category])
   return (
     <div className="App">
+      
      <NavBar setInputSearch={setInputSearch}/>
      <Switch>
        <Route exact path="/" ><Home inputSearch={inputSearch}/></Route>

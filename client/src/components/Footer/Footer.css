@@ -1,16 +1,14 @@
 .footer-dark {
-    padding:50px 0;
+  display: table-row;
+    height: 0;
     color:#f0f9ff;
   background:linear-gradient(135deg, #172a74, #21a9af);
    background-color:#184e8e;
-   min-height: 100%;
-   height: auto !important;
-   height: 100%;
-   margin: 0 auto -60px;
+
   }
   
   .footer-dark h3 {
-    margin-top:0;
+    margin-top:50px;
     margin-bottom:12px;
     font-weight:bold;
     font-size:16px;
@@ -90,5 +88,5 @@
     padding-top:24px;
     opacity:0.3;
     font-size:13px;
-    margin-bottom:0;
+    margin-bottom:30px;
   }
